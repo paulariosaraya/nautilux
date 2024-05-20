@@ -153,7 +153,7 @@ function InterventionFormController($mdDialog, $http, $scope, __env) {
 	}
 
 	self.deleteIntervention = function updateIntervention(intervention) {
-		$http.delete(`${__env.apiUrl}/${intervention.id}/`).then(function successCallback() {
+		$http.delete(`${__env.apiUrl}/interventions/${intervention.id}/`).then(function successCallback() {
 			$mdDialog.hide();
 		}, function errorCallback(response) {
 			console.log(response);
