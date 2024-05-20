@@ -16,7 +16,7 @@ filter('formatStatut', function() {
 }).
 component('interventionsTable', { 
 	templateUrl: 'interventions-table/interventions-table.template.html',
-	controller: function interventionsTableController($scope, $http, $mdDialog) {
+	controller: function interventionsTableController($scope, $http, $mdDialog, __env) {
 		var self = this;
 		$scope.query = {
 			order: '-date_creation',
@@ -26,7 +26,7 @@ component('interventionsTable', {
 
 		function onChangeQuery() {
 			$http.get(
-				`http://localhost:8000/interventions/`,
+				`${__env.apiUrl}/interventions/`,
 				{
 					params: {
 						ordering: $scope.query.order,
@@ -101,12 +101,12 @@ component('interventionsTable', {
 	}
 });
 
-function InterventionFormController($mdDialog, $http, $scope) {
+function InterventionFormController($mdDialog, $http, $scope, __env) {
 	var self = this;
 
 	$scope.intervention = {};
 
-	$http.get(`http://localhost:8000/interventions/villes/`).then(function(response) {
+	$http.get(`${__env.apiUrl}/interventions/villes/`).then(function(response) {
 			self.villes = response.data;
 	});
 
@@ -122,7 +122,7 @@ function InterventionFormController($mdDialog, $http, $scope) {
 		}
 
 		$http.post(
-			`http://localhost:8000/interventions/`, 
+			`${__env.apiUrl}/interventions/`, 
 			{
 				...$scope.intervention,
 				date_intervention: formattedDate,
@@ -139,9 +139,10 @@ function InterventionFormController($mdDialog, $http, $scope) {
 		const formattedDate = date.toISOString().split('T')[0];
 
 		$http.put(
-			`http://localhost:8000/interventions/${intervention.id}/`, 
+			`${__env.apiUrl}/interventions/${intervention.id}/`, 
 			{
 				...intervention,
+				lieu: intervention.lieu.id,
 				date_intervention: formattedDate,
 			}
 		).then(function successCallback() {
@@ -152,7 +153,7 @@ function InterventionFormController($mdDialog, $http, $scope) {
 	}
 
 	self.deleteIntervention = function updateIntervention(intervention) {
-		$http.delete(`http://localhost:8000/interventions/${intervention.id}/`).then(function successCallback() {
+		$http.delete(`${__env.apiUrl}/${intervention.id}/`).then(function successCallback() {
 			$mdDialog.hide();
 		}, function errorCallback(response) {
 			console.log(response);
