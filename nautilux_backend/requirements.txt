@@ -1,0 +1,5 @@
+Django==1.11
+djangorestframework==3.9.0
+psycopg2-binary==2.8.6
+python-decouple==3.8
+pytz==2024.1

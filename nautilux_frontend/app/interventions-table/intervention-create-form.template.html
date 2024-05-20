@@ -1,0 +1,56 @@
+<md-dialog>
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2 flex>Ajouter intervention</h2>
+
+			<md-button class="md-icon-button md-primary" aria-label="Close" ng-click="ctrl.closeDialog()">
+				<md-icon style="color: #FFF; font-size: 20px;">close</md-icon>
+			</md-button>
+		</div>
+	</md-toolbar>
+
+  <md-dialog-content style="min-width: 600px; max-width: 100%; padding: 20px;">
+		<form name="interventionForm">
+			<div layout-gt-xs="row">
+				<md-input-container class="md-block" flex-gt-xs>
+					<label>Libellé</label>
+					<input ng-model="intervention.libelle">
+				</md-input-container>
+			</div>
+			<div layout-gt-xs="row">
+				<md-input-container class="md-block" flex-gt-xs>
+					<label>Description</label>
+					<textarea ng-model="intervention.description" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+				</md-input-container>
+			</div>
+			<div layout-gt-xs="row">
+				<md-input-container class="md-block" flex-gt-xs>
+					<label>Nom intervenant</label>
+					<input ng-model="intervention.nom_intervenant">
+				</md-input-container>
+			</div>
+			<div layout-gt-xs="row">
+				<md-input-container class="md-block" flex-gt-xs="grow">
+					<label>Lieu</label>
+          <md-select ng-model="intervention.lieu">
+            <md-option><em>-</em></md-option>
+            <md-option ng-repeat="ville in ctrl.villes" ng-value="ville.id">
+              {{ville.nom}}
+            </md-option>
+          </md-select>
+				</md-input-container>
+				<md-input-container class="md-block" flex-gt-xs="noshrink">
+					<label>Date d'intervention</label>
+					<md-datepicker ng-model="intervention.date_intervention"></md-datepicker>
+				</md-input-container>
+			</div>
+		</form>
+	</md-dialog-content>
+
+	<md-dialog-actions layout="row">
+		<md-button md-autofocus class="md-primary" ng-click="ctrl.createIntervention()">
+			Enregistrer intervention
+		</md-button>
+	</md-dialog-actions>
+</md-dialog>
+  

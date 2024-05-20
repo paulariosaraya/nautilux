@@ -1,0 +1,76 @@
+<div class="container-fluid">
+	<div>
+		<div>
+			<md-toolbar class="md-table-toolbar md-default">
+				<div class="md-toolbar-tools">
+					<span>Interventions</span>
+				</div>
+			</md-toolbar>
+			
+			<md-content class="md-padding">
+				<div layout="row">
+					<md-input-container>
+						<label>Trier:</label>
+						<md-select ng-model="query.order">
+							<md-option value="-date_creation">Plus récentes</md-option>
+							<md-option value="date_creation">Plus anciennes</md-option>
+						</md-select>
+					</md-input-container>
+
+					<section flex layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+						<md-button class="md-raised btn-add" ng-click="$ctrl.showCreateForm($event)">
+							<md-icon style="color: #fff; font-size: 20px;">add</md-icon> Ajouter intervention
+						</md-button>
+					</section>
+				</div>
+
+				<md-table-container>
+					<table md-table>
+						<thead md-head>
+							<tr md-row>
+								<th md-column><span>Date de creation</span></th>
+								<th md-column><span>Libellé</span></th>
+								<th md-column><span>Description</span></th>
+								<th md-column><span>Nom intervenant</span></th>
+								<th md-column><span>Lieu</span></th>
+								<th md-column><span>Date de l'intervention</span></th>
+								<th md-column><span>Statut</span></th>
+								<th md-column colspan="2"><span>Actions</span></th>
+							</tr>
+						</thead>
+						<tbody md-body>
+							<tr md-row ng-repeat="intervention in $ctrl.interventions.results">
+								<td md-cell>{{ intervention.date_creation | date:'MM/dd/yyyy hh:mm:ss' }}</td>
+								<td md-cell>{{ intervention.libelle }}</td>
+								<td md-cell>{{ intervention.description }}</td>
+								<td md-cell>{{ intervention.nom_intervenant }}</td>
+								<td md-cell>{{ intervention.lieu.nom }}</td>
+								<td md-cell>{{ intervention.date_intervention | date:'MM/dd/yyyy' }}</td>
+								<td md-cell>{{ intervention.statut | formatStatut }}</td>
+								<td md-cell>
+									<section layout="row" layout-align="center center">
+										<md-button class="md-icon-button md-primary" ng-click="$ctrl.showUpdateForm($event, intervention)" aria-label="Modifier">
+											<md-icon style="color: #FFC107; font-size: 20px;">edit</md-icon>
+										</md-button>
+										<md-button class="md-icon-button md-primary" ng-click="$ctrl.showDeleteForm($event, intervention)" aria-label="Supprimer">
+											<md-icon style="color: #D32F2F; font-size: 20px;">delete</md-icon>
+										</md-button>
+									</section>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</md-table-container>
+
+        <md-table-pagination 
+					md-limit="query.limit" 
+					md-page="query.page" 
+					md-total="{{$ctrl.interventions.count}}"
+					md-on-paginate="logPagination"
+					md-label="{of: 'sur'}"
+					md-page-select>
+				</md-table-pagination>
+			</md-content>
+	  </div>
+	</div>
+</div>

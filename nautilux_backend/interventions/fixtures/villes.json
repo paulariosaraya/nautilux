@@ -1,0 +1,92 @@
+[
+    {
+        "model": "interventions.ville",
+        "pk": 1,
+        "fields": {
+            "departement": "côte-d'or",
+            "nom": "Dijon",
+            "region": "Bourgogne-Franche-Comté"
+        }
+    },
+    {
+        "model": "interventions.ville",
+        "pk": 2,
+        "fields": {
+            "departement": "rhône",
+            "nom": "Lyon",
+            "region": "Auvergne-Rhône-Alpes"
+        }
+    },
+    {
+        "model": "interventions.ville",
+        "pk": 3,
+        "fields": {
+            "departement": "gironde",
+            "nom": "Bordeaux",
+            "region": "Nouvelle-Aquitaine"
+        }
+    },
+    {
+        "model": "interventions.ville",
+        "pk": 4,
+        "fields": {
+            "departement": "bouches-du-rhône",
+            "nom": "Marseille",
+            "region": "Provence-Alpes-Côte d'Azur"
+        }
+    },
+    {
+        "model": "interventions.ville",
+        "pk": 5,
+        "fields": {
+            "departement": "hérault",
+            "nom": "Montpellier",
+            "region": "Occitanie"
+        }
+    },
+    {
+        "model": "interventions.ville",
+        "pk": 6,
+        "fields": {
+            "departement": "meurthe-et-moselle",
+            "nom": "Nancy",
+            "region": "Grand Est"
+        }
+    },
+    {
+        "model": "interventions.ville",
+        "pk": 7,
+        "fields": {
+            "departement": "bas-rhin",
+            "nom": "Strasbourg",
+            "region": "Grand Est"
+        }
+    },
+    {
+        "model": "interventions.ville",
+        "pk": 8,
+        "fields": {
+            "departement": "nord",
+            "nom": "Lille",
+            "region": "Hauts-de-France"
+        }
+    },
+    {
+        "model": "interventions.ville",
+        "pk": 9,
+        "fields": {
+            "departement": "loire-atlantique",
+            "nom": "Nantes",
+            "region": "Pays de la Loire"
+        }
+    },
+    {
+        "model": "interventions.ville",
+        "pk": 10,
+        "fields": {
+            "departement": "paris",
+            "nom": "Paris",
+            "region": "Île-de-France"
+        }
+    }
+]

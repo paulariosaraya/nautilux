@@ -1,0 +1,20 @@
+<md-dialog style="padding: 20px;">
+  <md-dialog-content  layout="column" layout-align="center center">
+		<div>
+			<h3>Confirmez-vous la suppression ?</h3>
+		</div>
+		<div flex>
+			<p>Si vous confirmez l'intervention sera définitivement effacé</p>
+		</div>
+	</md-dialog-content>
+
+	<md-dialog-actions layout="row" layout-align="center center">
+		<md-button md-autofocus class="md-raised btn-danger" ng-click="ctrl.deleteIntervention(ctrl.intervention)">
+			<md-icon style="color: #fff; font-size: 20px;">delete</md-icon> Supprimer
+		</md-button>
+		<md-button md-autofocus class="md-raised btn-plain" ng-click="ctrl.closeDialog()">
+			Annuler
+		</md-button>
+	</md-dialog-actions>
+</md-dialog>
+  

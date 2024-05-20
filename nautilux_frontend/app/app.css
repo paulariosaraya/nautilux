@@ -1,0 +1,25 @@
+.btn-add {
+	background-color: #28a745 !important;
+	color: #FFF !important;
+	text-transform: revert;
+}
+
+.btn-danger {
+	background-color: #D32F2F !important;
+	color: #FFF !important;
+	text-transform: revert;
+}
+
+.btn-plain {
+	background-color: #FFF !important;
+	color: #000 !important;
+	text-transform: revert;
+}
+
+.md-datepicker-input-container {
+	width: 150px;
+}
+
+.md-table-pagination .label {
+	color: rgba(0,0,0,.54)
+}
