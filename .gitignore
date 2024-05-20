@@ -4,3 +4,4 @@
 .LSOverride
 .venv/
 .idea
+.env
