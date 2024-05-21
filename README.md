@@ -16,16 +16,16 @@ Cloner ce repository:
 
 ```sh
 # https
-git clone https://github.com/burningreds/nautilux.git
+git clone https://github.com/paulariosaraya/nautilux.git
 # ssh
-git clone git@github.com:burningreds/nautilux.git
+git clone git@github.com:paulariosaraya/nautilux.git
 
 cd nautilux
 ```
 
 ### 2. Environment Variables
 Créez un fichier `.env` en utilisant le fichier `.env-example` comme base. 
-Modifiez les valeurs selon vos besoins.
+Modifiez les valeurs `SECRET_KEY`, `DB_USER` et `DB_PASSWORD` selon vos besoins. 
 
 ```shell
 cp .env-example .env
