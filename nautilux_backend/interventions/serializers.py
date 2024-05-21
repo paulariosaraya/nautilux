@@ -15,7 +15,11 @@ class VilleSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class InterventionSerializer(serializers.HyperlinkedModelSerializer):
-    lieu = serializers.PrimaryKeyRelatedField(queryset=Ville.objects.all())
+    lieu = serializers.PrimaryKeyRelatedField(
+        queryset=Ville.objects.all(),
+        required=False,
+        allow_null=True,
+    )
 
     class Meta:
         model = Intervention

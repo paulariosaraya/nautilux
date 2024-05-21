@@ -104,6 +104,20 @@ component('interventionsTable', {
 function InterventionFormController($mdDialog, $http, $scope, __env) {
 	var self = this;
 
+	const today = new Date();
+	self.minDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate(),
+  );
+
+	$scope.dateLocale = {
+		formatDate: function(date) {
+			const formatter = new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+			return date ? formatter.format(date) : '';
+		}
+	};
+
 	$scope.intervention = {};
 
 	$http.get(`${__env.apiUrl}/interventions/villes/`).then(function(response) {
@@ -130,24 +144,29 @@ function InterventionFormController($mdDialog, $http, $scope, __env) {
 		).then(function successCallback() {
 			$mdDialog.hide();
 		}, function errorCallback(response) {
+			// TODO: Improve error handling
 			console.log(response);
 		});
 	}
 
 	self.updateIntervention = function updateIntervention(intervention) {
-		const date = new Date(intervention.date_intervention);
-		const formattedDate = date.toISOString().split('T')[0];
+		let formattedDate;
+		if (intervention.date_intervention) {
+			const date = new Date(intervention.date_intervention);
+			formattedDate = date.toISOString().split('T')[0];
+		}
 
 		$http.put(
 			`${__env.apiUrl}/interventions/${intervention.id}/`, 
 			{
 				...intervention,
-				lieu: intervention.lieu.id,
+				lieu: intervention.lieu ? intervention.lieu.id : null,
 				date_intervention: formattedDate,
 			}
 		).then(function successCallback() {
 			$mdDialog.hide();
 		}, function errorCallback(response) {
+			// TODO: Improve error handling
 			console.log(response);
 		});
 	}
@@ -156,6 +175,7 @@ function InterventionFormController($mdDialog, $http, $scope, __env) {
 		$http.delete(`${__env.apiUrl}/interventions/${intervention.id}/`).then(function successCallback() {
 			$mdDialog.hide();
 		}, function errorCallback(response) {
+			// TODO: Improve error handling
 			console.log(response);
 		});
 	}

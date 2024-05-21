@@ -23,3 +23,7 @@
 .md-table-pagination .label {
 	color: rgba(0,0,0,.54)
 }
+
+.md-button[disabled] .material-icons {
+  color: rgba(0,0,0,0.38) !important;
+}

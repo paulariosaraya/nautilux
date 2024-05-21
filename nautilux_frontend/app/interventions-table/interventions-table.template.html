@@ -40,16 +40,21 @@
 						</thead>
 						<tbody md-body>
 							<tr md-row ng-repeat="intervention in $ctrl.interventions.results">
-								<td md-cell>{{ intervention.date_creation | date:'MM/dd/yyyy hh:mm:ss' }}</td>
+								<td md-cell>{{ intervention.date_creation | date:'dd/MM/yyyy hh:mm:ss' }}</td>
 								<td md-cell>{{ intervention.libelle }}</td>
 								<td md-cell>{{ intervention.description }}</td>
 								<td md-cell>{{ intervention.nom_intervenant }}</td>
 								<td md-cell>{{ intervention.lieu.nom }}</td>
-								<td md-cell>{{ intervention.date_intervention | date:'MM/dd/yyyy' }}</td>
+								<td md-cell>{{ intervention.date_intervention | date:'dd/MM/yyyy' }}</td>
 								<td md-cell>{{ intervention.statut | formatStatut }}</td>
 								<td md-cell>
 									<section layout="row" layout-align="center center">
-										<md-button class="md-icon-button md-primary" ng-click="$ctrl.showUpdateForm($event, intervention)" aria-label="Modifier">
+										<md-button 
+											class="md-icon-button md-primary" 
+											ng-click="$ctrl.showUpdateForm($event, intervention)" 
+											aria-label="Modifier"
+											ng-disabled="{{intervention.statut === 3}}"
+										>
 											<md-icon style="color: #FFC107; font-size: 20px;">edit</md-icon>
 										</md-button>
 										<md-button class="md-icon-button md-primary" ng-click="$ctrl.showDeleteForm($event, intervention)" aria-label="Supprimer">
