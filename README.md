@@ -23,7 +23,7 @@ git clone git@github.com:paulariosaraya/nautilux.git
 cd nautilux
 ```
 
-### 2. Environment Variables
+### 2. Variables d'environnement
 Créez un fichier `.env` en utilisant le fichier `.env-example` comme base. 
 Modifiez les valeurs `SECRET_KEY`, `DB_USER` et `DB_PASSWORD` selon vos besoins. 
 
@@ -31,7 +31,7 @@ Modifiez les valeurs `SECRET_KEY`, `DB_USER` et `DB_PASSWORD` selon vos besoins.
 cp .env-example .env
 ```
 
-### 4. Build and Run the Services
+### 3. Créer et exécuter les services
 Créez et exécutez les conteneurs Docker à l'aide de Docker Compose:
 ```sh
 docker-compose up --build
